@@ -41,7 +41,7 @@ public class CreateProductTest {
     @Test
     void postProductTest() throws IOException {
         Response<Product> response = productService.createProduct(product).execute();
-
+        assertThat(response.isSuccessful());
     }
 
     @Test
@@ -51,6 +51,6 @@ public class CreateProductTest {
                 .getCategory(id)
                 .execute();
 //        log.info(response.body().toString());
-
+        assertThat(response.isSuccessful());
     }
 }
